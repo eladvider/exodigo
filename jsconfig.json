@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./src/",
+        "module": "commonjs",
+        "target": "ES6",
+        "jsx": "react",
+        "paths": {
+            "Components/*": ["./components/*"],
+            "Slice/*":["./slice/*"],
+            "Styles/*":["./styles/*"],
+            "Api/*":["./api/*"],
+            "Screens/*":["./screens/*"],
+            "Services/*":["./services/*"]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

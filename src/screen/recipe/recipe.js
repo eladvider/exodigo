@@ -1,9 +1,12 @@
 import React from "react";
 import RecipeStyled from "./recipe.style";
 
-const Recipe = ({ ingredients, instructions, image, name }) => {
+const Recipe = ({ ingredients, instructions, image, name, handleGoBack }) => {
   return (
     <RecipeStyled>
+      <div className="back-button" onClick={() => handleGoBack()}>
+        <span className="label">back</span>
+      </div>
       <div className="recipeName">{name}</div>
       <div className="image">
         <img alt={name} src={image} />{" "}

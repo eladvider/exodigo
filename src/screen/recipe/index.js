@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Recipe from "./recipe";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useGetRecipeByIdQuery } from "Api/recipe/recipeApiSlice";
 import Loader from "Components/loader";
 import { toast } from "react-toastify";
 const RecipeContainer = () => {
   let { id } = useParams();
+  const navigate = useNavigate();
   const { data: recipe, isLoading, isError } = useGetRecipeByIdQuery(id);
   const [ingredients, setIngredients] = useState([]);
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     if (isError) {
@@ -45,6 +50,7 @@ const RecipeContainer = () => {
     <Loader />
   ) : (
     <Recipe
+      handleGoBack={handleGoBack}
       name={recipe.strDrink}
       image={recipe.strDrinkThumb}
       instructions={recipe.strInstructions}

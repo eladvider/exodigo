@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useLazySearchCocktailsQuery } from "Api/cocktail/cocktailApiSlice";
 const SearchContainer = () => {
   const navigate = useNavigate();
-  const [trigger, { isFetching, isError, data, error, isSuccess }] =
+  const [trigger, { isFetching, data, isSuccess }] =
     useLazySearchCocktailsQuery();
 
   const debouncedChangeHandler = useMemo(() => {
@@ -14,10 +14,13 @@ const SearchContainer = () => {
     };
 
     return debounce(changeHandler, 500);
-  }, []);
-  const onItemClicked = useCallback((idDrink) => {
-    navigate(`/recipe/${idDrink}`);
-  }, []);
+  }, [trigger]);
+  const onItemClicked = useCallback(
+    (idDrink) => {
+      navigate(`/recipe/${idDrink}`);
+    },
+    [navigate]
+  );
 
   return (
     <Search

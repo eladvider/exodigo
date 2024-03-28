@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  Navigate,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Cocktail from "screen/cocktail";
 import Recipe from "screen/recipe";

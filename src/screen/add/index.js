@@ -26,7 +26,7 @@ const AddContainer = () => {
         }
       }
       data.strCreativeCommonsConfirmed =
-        data.strCreativeCommonsConfirmed == "on" ? "Yes" : "No";
+        data.strCreativeCommonsConfirmed === "on" ? "Yes" : "No";
       const fileName = `recipe_${values.strDrink}`;
       const json = JSON.stringify(data, null, 2);
       const blob = new Blob([json], { type: "application/json" });

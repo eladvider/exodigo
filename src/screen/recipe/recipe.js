@@ -6,7 +6,7 @@ const Recipe = ({ ingredients, instructions, image, name }) => {
     <RecipeStyled>
       <div className="recipeName">{name}</div>
       <div className="image">
-        <img src={image} />{" "}
+        <img alt={name} src={image} />{" "}
       </div>
       <div className="ingredients">
         <div className="title">Ingredients:</div>

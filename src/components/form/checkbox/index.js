@@ -3,10 +3,7 @@ import CheckboxStyled from "./checkbox.style";
 import { useFormContext, useController } from "react-hook-form";
 
 const Checkbox = ({ label, id, inputProps = {}, value }) => {
-  const {
-    watch,
-    formState: { errors },
-  } = useFormContext();
+  const { watch } = useFormContext();
   const [val, setVal] = useState(false);
   const checkboxValue = value ? value : "on";
   const char = watch(id);

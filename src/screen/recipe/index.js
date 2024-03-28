@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Recipe from "./recipe";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetRecipeByIdQuery } from "Api/recipe/recipeApiSlice";
 import Loader from "Components/loader";
 import { toast } from "react-toastify";

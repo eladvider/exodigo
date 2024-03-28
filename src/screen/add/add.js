@@ -14,17 +14,15 @@ const Add = ({ onSubmit }) => {
   });
   const file = methods.watch("file");
   useEffect(() => {
-    if (!file || file.length == 0) return;
+    if (!file || file.length === 0) return;
     const urlImage = URL.createObjectURL(file[0]);
     setPreview(urlImage);
   }, [file]);
 
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control: methods.control,
-      name: "ingredients", // unique name for your Field Array
-    }
-  );
+  const { fields, append, remove } = useFieldArray({
+    control: methods.control,
+    name: "ingredients", // unique name for your Field Array
+  });
   const submit = (values) => {
     onSubmit({ ...values, preview }, () => methods.reset());
   };
@@ -55,7 +53,7 @@ const Add = ({ onSubmit }) => {
               ) : (
                 ""
               )}
-              {fields.length - 1 == index ? (
+              {fields.length - 1 === index ? (
                 <Button
                   type="button"
                   onClick={() => append({ strIngredient: "", strMeasure: "" })}
@@ -68,7 +66,11 @@ const Add = ({ onSubmit }) => {
             </div>
           ))}
           <input type="file" {...methods.register("file")} />
-          {preview ? <img src={preview} className="preview" /> : ""}
+          {preview ? (
+            <img src={preview} alt="preview" className="preview" />
+          ) : (
+            ""
+          )}
           <InputLabel
             inputProps={{ required: "*require filed" }}
             id="strInstructions"

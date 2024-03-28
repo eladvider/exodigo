@@ -29,7 +29,7 @@ const Search = ({
           ""
         )}
       </div>
-      {isSuccess && (!results || results?.length == 0) ? (
+      {isSuccess && (!results || results?.length === 0) ? (
         <div>No Results</div>
       ) : (
         <div className="results">
